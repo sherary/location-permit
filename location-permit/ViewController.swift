@@ -7,10 +7,11 @@
 
 import UIKit
 import CoreLocation
+import MessageUI
 
-class ViewController: UIViewController, CLLocationManagerDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate, MFMessageComposeViewControllerDelegate {
+
     private var locationManager: CLLocationManager?
-
     private let latLngLabel: UILabel = {
         let label = UILabel()
         label.backgroundColor = .systemFill
@@ -27,6 +28,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         getUserLocation()
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
     func getUserLocation() {
         locationManager = CLLocationManager()
         locationManager?.delegate = self
@@ -39,6 +44,37 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         if let location = locations.last {
             latLngLabel.text = "Lat: \(location.coordinate.latitude) \nLong: \(location.coordinate.longitude)"
         }
+    }
+    
+    @IBAction func sendSMS(_ sender: Any) {
+        if MFMessageComposeViewController.canSendText() {
+            let controller = MFMessageComposeViewController()
+            controller.body = "Halp!"
+            controller.recipients = ["081703088740"]
+            controller.messageComposeDelegate = self
+            self.present(controller, animated: true, completion: nil)
+        } else {
+            print("Cannot send text AAAAAAAAAAAAAAAAAAAH")
+        }
+    }
+    
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        switch (result) {
+            case .cancelled:
+                print("Message cancelled")
+                dismiss(animated: true, completion: nil)
+            case .failed:
+                print("Message failed")
+                dismiss(animated: true, completion: nil)
+            case .sent:
+                print("Message sent")
+                dismiss(animated: true, completion: nil)
+            default:
+                break
+        }
+    }
+    
+    @IBAction func sendWhatsapp(_ sender: UIButton) {
     }
 }
 

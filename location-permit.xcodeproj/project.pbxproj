@@ -16,6 +16,8 @@
 		4E3B1CBF285B80C100942E94 /* location_permitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3B1CBE285B80C100942E94 /* location_permitTests.swift */; };
 		4E3B1CC9285B80C200942E94 /* location_permitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3B1CC8285B80C200942E94 /* location_permitUITests.swift */; };
 		4E3B1CCB285B80C200942E94 /* location_permitUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3B1CCA285B80C200942E94 /* location_permitUITestsLaunchTests.swift */; };
+		4E666713285B9B4900F6C0B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E3B1CAD285B80C000942E94 /* Main.storyboard */; };
+		4E666714285B9B4900F6C0B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E3B1CAD285B80C000942E94 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -241,6 +243,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E666713285B9B4900F6C0B8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,6 +251,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E666714285B9B4900F6C0B8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
