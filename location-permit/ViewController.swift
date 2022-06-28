@@ -74,7 +74,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MFMessageComp
         }
     }
     
+    
     @IBAction func sendWhatsapp(_ sender: UIButton) {
+        let phoneNumber: String = "081703088740"
+        let message: String = "Tasukete"
+        let whatsappURL = "https://wa.me/" + phoneNumber + "?text=" + message
+        if let urlString = whatsappURL.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed) {
+          if let waURL = NSURL(string: urlString) {
+            if UIApplication.shared.canOpenURL(waURL as URL) {
+              UIApplication.shared.open(waURL as URL, options: [:], completionHandler: nil)
+            } else {
+              print("Cannot Open Whatsapp")
+            }
+          }
+        }
     }
 }
 
